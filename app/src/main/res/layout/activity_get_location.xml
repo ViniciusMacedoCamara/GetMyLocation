@@ -25,36 +25,75 @@
             android:text="Para viajar digite sua latitude e longitude nos campos abaixo" />
 
         <EditText
-            android:id="@+id/text_view2"
-            android:layout_width="200dp"
+            android:id="@+id/latitude"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/text_view1"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:inputType="numberSigned|numberDecimal"
-            android:hint="Latitude" />
+            android:hint="Latitude"
+            android:inputType="numberSigned|numberDecimal" />
 
         <EditText
-            android:id="@+id/text_view3"
-            android:layout_width="200dp"
+            android:id="@+id/longitude"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_below="@id/latitude"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/text_view2"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:inputType="numberSigned|numberDecimal"
-            android:hint="Longitude" />
+            android:hint="Longitude"
+            android:inputType="numberSigned|numberDecimal" />
+
+        <TextView
+            android:id="@+id/text_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/longitude"
+            android:text="Caso saiba o nome do local, basta digitar abaixo:" />
+
+        <EditText
+            android:id="@+id/local_name"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Rua dos alfeneiros nº 4"
+            android:inputType="text" />
 
         <Button
-            android:id="@+id/start"
+            android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/text_view3"
+            android:layout_below="@id/local_name"
             android:layout_marginTop="16dp"
+            android:drawableLeft="@android:drawable/ic_menu_search"
             android:text="Buscar" />
 
+        <TextView
+            android:id="@+id/text_view4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/search"
+            android:text="Para saber sua atual localização basta clicar abaixo" />
+
+        <Button
+            android:id="@+id/get_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/text_view4"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@android:drawable/ic_dialog_map"
+            android:text="Capturar minha localização" />
 
 
     </RelativeLayout>
