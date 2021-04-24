@@ -10,5 +10,6 @@ public class GetLocation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_location);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
