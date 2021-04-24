@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity {
@@ -18,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
 
         start = findViewById(R.id.start);
         start.setOnClickListener(v -> {
-            Intent intent = new Intent(this, GetLocation.class);
+            Intent intent = new Intent(this, GetLocationActivity.class);
             startActivity(intent);
         });
     }
