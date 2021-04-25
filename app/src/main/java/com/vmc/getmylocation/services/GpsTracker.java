@@ -1,4 +1,4 @@
-package com.vmc.getmylocation.helpers;
+package com.vmc.getmylocation.services;
 
 import android.Manifest;
 import android.app.Activity;

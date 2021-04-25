@@ -1,21 +1,17 @@
 package com.vmc.getmylocation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.vmc.getmylocation.R;
-import com.vmc.getmylocation.helpers.GpsTracker;
+import com.vmc.getmylocation.services.GpsTracker;
 import com.vmc.getmylocation.helpers.Utils;
 
 public class GetLocationActivity extends AppCompatActivity {
