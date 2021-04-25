@@ -13,6 +13,14 @@ import com.vmc.getmylocation.R;
 import com.vmc.getmylocation.services.GpsTracker;
 import com.vmc.getmylocation.helpers.Utils;
 
+/**
+ * Aviso aos avaliadores. As versões mais recentes do Google Maps (^10.11.x) não estão mostrando a label
+ * Foi testado com a versão mais recente e pude comprovar o ocorrido, entretanto, fiz um rollback para a versão 9.76.1
+ * onde foi possivel mostrar e alterar o label
+ * Existem discussões nos fóruns oficiais -> https://issuetracker.google.com/issues/129726279
+ * Favor levar isso em consideração caso esteja rodando alguma versão do Google Maps que tenha essa feature desativada/removida.
+ */
+
 public class GetLocationActivity extends AppCompatActivity {
     private EditText latitude, longitude, label;
     private String latView, lngView;
