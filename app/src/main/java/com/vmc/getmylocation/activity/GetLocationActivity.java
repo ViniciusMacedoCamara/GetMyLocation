@@ -40,7 +40,7 @@ public class GetLocationActivity extends AppCompatActivity {
             String canContinue = utils.checkAllFields(latitude.getText().toString(), longitude.getText().toString(), label.getText().toString());
 
 
-            if (!canContinue.equals("false")){
+            if (!canContinue.equals("false") && !canContinue.equals("Campos invalidos")){
                 Log.d(tag, "seguir e levar pro google maps");
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("geo:0,0?q=" + canContinue));
