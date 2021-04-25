@@ -4,9 +4,12 @@ A fully native Java Android app to get users current location and open Google Ma
 
 # Label notes
 Warning to anyone reading this. The latest versions of Google Maps (^ 10.11.x) are not showing a label
+
 It was tested with the latest version and I was able to verify that the error actually occurs, however, I did a rollback Google Maps to version 9.76.1 where it was possible to show and change the label
+
 There are official forums -> https://issuetracker.google.com/issues/129726279
-Please take this into account if you are running any version of Google Maps that has this feature disabled / removed.
+
+Please take this info if you are running any version of Google Maps that has this feature disabled / removed.
 
 ## About the author:
 
