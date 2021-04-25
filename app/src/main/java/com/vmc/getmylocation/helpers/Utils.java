@@ -37,17 +37,17 @@ public class Utils {
      * */
     public boolean latLngRegex(String lat, String lng) {
 
-        if(lat.length() > 10) lat = trimString(lat);
+        if(lat.length() > 11) lat = trimString(lat);
 
-        if(lng.length() > 10) lng = trimString(lng);
+        if(lng.length() > 11) lng = trimString(lng);
 
-        if (lat.matches("^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$") && lng.matches("^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$")){
+        if (lat.matches("^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)") && lng.matches("^[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)$")){
             return true;
         } else return false;
     }
 
     /**
-     * Function to trim numbers after 10th digit
+     * Function to trim numbers after 11th digit
      * @param s
      * */
     public String trimString (String s) {
