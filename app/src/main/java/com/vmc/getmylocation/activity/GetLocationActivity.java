@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -15,12 +14,10 @@ import com.vmc.getmylocation.services.GpsTracker;
 import com.vmc.getmylocation.helpers.Utils;
 
 public class GetLocationActivity extends AppCompatActivity {
-    final String tag = "GetLoca";
     private EditText latitude, longitude, label;
-    private String latView, lngView, labelView;
+    private String latView, lngView;
     private Button search, getLocation;
     private Utils utils = new Utils();
-    private GpsTracker gpsTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +33,19 @@ public class GetLocationActivity extends AppCompatActivity {
         getLocation = findViewById(R.id.btn_get_location);
         latView = latitude.getText().toString();
         lngView = longitude.getText().toString();
-        labelView = label.getText().toString();
+
 
         search.setOnClickListener(v -> {
 
-            String checkFields = utils.checkAllFields(latView, lngView, labelView);
+            String checkFields = utils.checkAllFields(latView, lngView, label.getText().toString());
 
 
-            if (!checkFields.equals("false") && !checkFields.equals("Campos invalidos")){
+            if (!checkFields.equals("vazio") && !checkFields.equals("campo_invalido")){
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("geo:0,0?q=" + checkFields));
-                Intent chooser = Intent.createChooser(intent, "Lauch");
+                Intent chooser = Intent.createChooser(intent, "GMaps");
                 startActivity(chooser);
-            } else {
-                errorDialog(checkFields);
-            }
+            } else errorDialog(checkFields);
 
         });
 
@@ -60,13 +55,10 @@ public class GetLocationActivity extends AppCompatActivity {
             if (mGpsLocationTracker.canGetLocation()) {
                 latView = String.valueOf(mGpsLocationTracker.getLatitude());
                 lngView = String.valueOf(mGpsLocationTracker.getLongitude());
-                Log.i(tag, String.format("aaa - latitude: %s", latView));
-                Log.i(tag, String.format("bbb - longitude: %s", lngView));
                 latitude.setText(latView);
                 longitude.setText(lngView);
-            } else {
-                mGpsLocationTracker.showSettingsAlert();
-            }
+                label.setText("Capturado pelo App");
+            } else mGpsLocationTracker.showSettingsAlert();
         });
 
     }
