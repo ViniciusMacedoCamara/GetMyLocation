@@ -1,22 +1,30 @@
 package com.vmc.getmylocation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.vmc.getmylocation.R;
+import com.vmc.getmylocation.helpers.GpsTracker;
 import com.vmc.getmylocation.helpers.Utils;
 
 public class GetLocationActivity extends AppCompatActivity {
     final String tag = "GetLoca";
     private EditText latitude, longitude, label;
-    private Button search;
+    private String latView, lngView, labelView;
+    private Button search, getLocation;
     private Utils utils = new Utils();
+    private GpsTracker gpsTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +36,15 @@ public class GetLocationActivity extends AppCompatActivity {
         latitude = findViewById(R.id.et_latitude);
         longitude = findViewById(R.id.et_longitude);
         label = findViewById(R.id.et_label);
-
         search = findViewById(R.id.btn_search);
+        getLocation = findViewById(R.id.btn_get_location);
+        latView = latitude.getText().toString();
+        lngView = longitude.getText().toString();
+        labelView = label.getText().toString();
+
         search.setOnClickListener(v -> {
 
-            String checkFields = utils.checkAllFields(latitude.getText().toString(), longitude.getText().toString(), label.getText().toString());
+            String checkFields = utils.checkAllFields(latView, lngView, labelView);
 
 
             if (!checkFields.equals("false") && !checkFields.equals("Campos invalidos")){
@@ -44,6 +56,21 @@ public class GetLocationActivity extends AppCompatActivity {
                 errorDialog(checkFields);
             }
 
+        });
+
+        getLocation.setOnClickListener(v -> {
+            GpsTracker mGpsLocationTracker = new GpsTracker(this);
+
+            if (mGpsLocationTracker.canGetLocation()) {
+                latView = String.valueOf(mGpsLocationTracker.getLatitude());
+                lngView = String.valueOf(mGpsLocationTracker.getLongitude());
+                Log.i(tag, String.format("aaa - latitude: %s", latView));
+                Log.i(tag, String.format("bbb - longitude: %s", lngView));
+                latitude.setText(latView);
+                longitude.setText(lngView);
+            } else {
+                mGpsLocationTracker.showSettingsAlert();
+            }
         });
 
     }
