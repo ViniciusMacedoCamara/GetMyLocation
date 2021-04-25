@@ -11,21 +11,16 @@ public class Utils {
 
     }
 
-    public boolean checkAllFields (String lat, String lon, String local) {
+    public String checkAllFields (String lat, String lon, String local) {
 
         Log.d(tag, "--------------");
         Log.d(tag, String.valueOf(lat));
-        if (!lat.isEmpty() && !lon.isEmpty() && !local.isEmpty()){
-            Log.d(tag, "Todos os campos foram preenchidos, fazer verificação");
-            //Retornar outra funcao
-        } else if (!lat.isEmpty() && !lon.isEmpty()) {
+        if (!lat.isEmpty() && !lon.isEmpty()) {
             Log.d(tag, "Local Vazio lat e lon preenchidos");
-            return true;
-        } else if (!local.isEmpty()) {
-            Log.d(tag, "Local preenchido");
-            return true;
+            if (!local.isEmpty()) return lat + "," + lon + "(" + local + ")";
+            else return lat + "," + lon;
         } else
             Log.d(tag, "vazio");
-            return false;
+            return "false";
     }
 }

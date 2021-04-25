@@ -53,10 +53,10 @@
             android:layout_marginTop="16dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/et_longitude"
-            android:text="Caso saiba o nome do local, basta digitar abaixo:" />
+            android:text="Caso queira colocar uma label, basta digitar abaixo:" />
 
         <EditText
-            android:id="@+id/et_local_name"
+            android:id="@+id/et_label"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_info2"
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/et_local_name"
+            android:layout_below="@id/et_label"
             android:layout_marginTop="16dp"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:text="Buscar" />

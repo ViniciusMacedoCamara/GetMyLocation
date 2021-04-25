@@ -3,7 +3,6 @@ package com.vmc.getmylocation.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,7 +16,7 @@ import com.vmc.getmylocation.helpers.Utils;
 
 public class GetLocationActivity extends AppCompatActivity {
     final String tag = "GetLoca";
-    private EditText latitude, longitude, local_name;
+    private EditText latitude, longitude, label;
     private Button search;
     private Utils utils = new Utils();
 
@@ -30,23 +29,23 @@ public class GetLocationActivity extends AppCompatActivity {
 
         latitude = findViewById(R.id.et_latitude);
         longitude = findViewById(R.id.et_longitude);
-        local_name = findViewById(R.id.et_local_name);
+        label = findViewById(R.id.et_label);
 
         search = findViewById(R.id.btn_search);
         search.setOnClickListener(v -> {
             Log.d("latitude", latitude.getText().toString());
             Log.d("longitude", longitude.getText().toString());
-            Log.d("local_name", local_name.getText().toString());
+            Log.d("label", label.getText().toString());
 
-            boolean canContinue = utils.checkAllFields(latitude.getText().toString(), longitude.getText().toString(), local_name.getText().toString());
+            String canContinue = utils.checkAllFields(latitude.getText().toString(), longitude.getText().toString(), label.getText().toString());
 
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("geo:0,0?q=34.99,-106.61(Treasure)"));
-            Intent chooser = Intent.createChooser(intent, "Lauch");
-            startActivity(chooser);
-            if (canContinue){
+
+            if (!canContinue.equals("false")){
                 Log.d(tag, "seguir e levar pro google maps");
-
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:0,0?q=" + canContinue));
+                Intent chooser = Intent.createChooser(intent, "Lauch");
+                startActivity(chooser);
             } else {
                 Log.d(tag, "Deu ruim!");
                 new AlertDialog.Builder(this)
