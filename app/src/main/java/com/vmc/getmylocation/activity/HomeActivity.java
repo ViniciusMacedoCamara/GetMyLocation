@@ -1,10 +1,12 @@
-package com.vmc.getmylocation;
+package com.vmc.getmylocation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.vmc.getmylocation.R;
 
 public class HomeActivity extends AppCompatActivity {
     private Button start;

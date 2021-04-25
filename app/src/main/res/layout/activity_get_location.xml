@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GetLocationActivity">
+    tools:context=".activity.GetLocationActivity">
 
     <RelativeLayout
         android:id="@+id/intern_layout"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_view1"
+            android:id="@+id/tv_info1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -25,10 +25,10 @@
             android:text="Para viajar digite sua latitude e longitude nos campos abaixo" />
 
         <EditText
-            android:id="@+id/latitude"
+            android:id="@+id/et_latitude"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view1"
+            android:layout_below="@id/tv_info1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:ems="10"
@@ -36,10 +36,10 @@
             android:inputType="numberSigned|numberDecimal" />
 
         <EditText
-            android:id="@+id/longitude"
+            android:id="@+id/et_longitude"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/latitude"
+            android:layout_below="@id/et_latitude"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:ems="10"
@@ -47,19 +47,19 @@
             android:inputType="numberSigned|numberDecimal" />
 
         <TextView
-            android:id="@+id/text_view2"
+            android:id="@+id/tv_info2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/longitude"
+            android:layout_below="@id/et_longitude"
             android:text="Caso saiba o nome do local, basta digitar abaixo:" />
 
         <EditText
-            android:id="@+id/local_name"
+            android:id="@+id/et_local_name"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view2"
+            android:layout_below="@id/tv_info2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:ems="10"
@@ -67,30 +67,30 @@
             android:inputType="text" />
 
         <Button
-            android:id="@+id/search"
+            android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/local_name"
+            android:layout_below="@id/et_local_name"
             android:layout_marginTop="16dp"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:text="Buscar" />
 
         <TextView
-            android:id="@+id/text_view4"
+            android:id="@+id/tv_info3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/search"
+            android:layout_below="@id/btn_search"
             android:text="Para saber sua atual localização basta clicar abaixo" />
 
         <Button
-            android:id="@+id/get_location"
+            android:id="@+id/btn_get_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/text_view4"
+            android:layout_below="@id/tv_info3"
             android:layout_marginTop="16dp"
             android:drawableLeft="@android:drawable/ic_dialog_map"
             android:text="Capturar minha localização" />
