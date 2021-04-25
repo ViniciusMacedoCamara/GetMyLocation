@@ -1,3 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY appname "Get My Location">
+    <!ENTITY author "Vinicius Macedo Camara">
+    ]>
 <resources>
-    <string name="app_name">Get My Location</string>
+    <string name="app_name">&appname;</string>
+    <string name="greetings">Olá!</string>
+    <string name="greetings_message">Seja bem-vindo(a) ao app &appname;</string>
+    <string name="greetings_start">Clique no botão abaixo para iniciarmos nossa viagem!</string>
+    <string name="start">Começar</string>
+    <string name="general_info">Para viajar digite sua latitude e longitude nos campos abaixo</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="label_info">Caso queira colocar uma label, basta digitar abaixo:</string>
+    <string name="label_hint">Rua dos alfeneiros nº 4</string>
+    <string name="search">Buscar</string>
+    <string name="get_location_info">Para saber sua atual localização basta clicar abaixo</string>
+    <string name="get_location_btn">Capturar minha localização</string>
 </resources>
