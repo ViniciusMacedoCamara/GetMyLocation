@@ -25,20 +25,16 @@ public class GetLocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_get_location);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         latitude = findViewById(R.id.et_latitude);
         longitude = findViewById(R.id.et_longitude);
         label = findViewById(R.id.et_label);
         search = findViewById(R.id.btn_search);
         getLocation = findViewById(R.id.btn_get_location);
-        latView = latitude.getText().toString();
-        lngView = longitude.getText().toString();
 
-
+        // Trigger btn to search
         search.setOnClickListener(v -> {
 
-            String checkFields = utils.checkAllFields(latView, lngView, label.getText().toString());
-
+            String checkFields = utils.checkAllFields(latitude.getText().toString(), longitude.getText().toString(), label.getText().toString());
 
             if (!checkFields.equals("vazio") && !checkFields.equals("campo_invalido")){
                 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -49,7 +45,9 @@ public class GetLocationActivity extends AppCompatActivity {
 
         });
 
+        // Trigger btn to get current location
         getLocation.setOnClickListener(v -> {
+
             GpsTracker mGpsLocationTracker = new GpsTracker(this);
 
             if (mGpsLocationTracker.canGetLocation()) {
@@ -63,6 +61,10 @@ public class GetLocationActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Show Erro Dialog
+     * @param errDesc
+     * */
     public void errorDialog(String errDesc) {
         String title = "Erro";
         String message = "Erro desconhecido, favor entrar em contato com o desenvolvedor!";

@@ -6,6 +6,12 @@ public class Utils {
 
     }
 
+    /**
+     * Function to check if fiels are filled
+     * @param lat
+     * @param lng
+     * @param local
+     * */
     public String checkAllFields (String lat, String lng, String local) {
 
         if (!lat.isEmpty() && !lng.isEmpty()) {
@@ -24,6 +30,11 @@ public class Utils {
         } else return "vazio";
     }
 
+    /**
+     * Function to check latitude and longitude pattern
+     * @param lat
+     * @param lng
+     * */
     public boolean latLngRegex(String lat, String lng) {
 
         if(lat.length() > 10) lat = trimString(lat);
@@ -35,6 +46,10 @@ public class Utils {
         } else return false;
     }
 
+    /**
+     * Function to trim numbers after 10th digit
+     * @param s
+     * */
     public String trimString (String s) {
         int n = s.length() - 10;
         s = s.substring(0, s.length() - n);
